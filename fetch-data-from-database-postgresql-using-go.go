@@ -11,6 +11,8 @@ func main() {
 	var userName string
 	connStr := "user=mydbuser dbname=mydbname port=5432 password=mydbpass sslmode=disable"
 	db, err := sql.Open("postgres", connStr)
+	defer db.Close()
+	
 	if err != nil {
 		fmt.Println(err)
 	}
